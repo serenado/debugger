@@ -30,9 +30,10 @@ def execute():
 
 	#read in temp output
 	with open('temp.txt', 'r') as f:
+		os.remove('temp.txt')
 		return f.read()
 
-	os.remove('text.txt')
+
 
 
 if __name__ == "__main__":
