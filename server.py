@@ -1,5 +1,7 @@
 from flask import Flask, request
 import sys
+import os
+
 app = Flask(__name__)
 
 
@@ -7,7 +9,7 @@ app = Flask(__name__)
 @app.route('/execute', methods=['POST'])
 def execute():
 
-	#open temp file to keep track of all output
+	#dedirect stdout to text file
 	output = open('temp.txt', 'w')
 	sys.stdout = output
 
@@ -29,6 +31,8 @@ def execute():
 	#read in temp output
 	with open('temp.txt', 'r') as f:
 		return f.read()
+
+	os.remove('text.txt')
 
 
 if __name__ == "__main__":
