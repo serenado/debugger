@@ -2,11 +2,9 @@ from flask import Flask, request
 import sys
 app = Flask(__name__)
 
-@app.route("/")
-def index():
-	return "Hi"
 
-@app.route('/execute', methods=['GET', 'POST'])
+
+@app.route('/execute', methods=['POST'])
 def execute():
 
 	#open temp file to keep track of all output
